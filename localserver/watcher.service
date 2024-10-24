@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch sites for changes
+After=network.target
+
+[Service]
+WorkingDirectory={changepath}
+ExecStart={changepath}
+
+[Install]
+WantedBy=multi-user.target

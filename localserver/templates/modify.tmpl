@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website watcher</title>
+    <style>
+table{
+    width: 100%;
+}
+
+tbody tr:nth-child(odd){
+  background-color: #4C8BF5;
+  color: #fff;
+}
+
+tbody th{
+  background-color: #444;
+  color: #fff;
+}
+
+input {
+    width: 95%;
+}
+
+    </style>
+</head>
+<body>
+    <h2>Modify Handlers</h2>
+    <form method="POST">
+    <table>
+    <tr><th>ID</th><td>{{.j.ID}}</td></tr>
+    <tr><th>Url</th><td><input name="url" value="{{.j.Url}}"/></td></tr>
+    <tr><th>Props</th><td><input name="props" value="{{.j.Props}}"/></td></tr>
+    <tr><th>Handler</th><td>
+        <select name="pid"> {{range $k,$v := .hNames}}
+        <option value="{{$k}}" {{if eq $k $.j.Pid}}selected{{end}}>{{$v}}</option>
+        {{end}} </select>
+    </td></tr>
+    <tr><th>CINFO</th><td><input name="CINFO" value="{{.j.CINFO}}"/></td></tr>
+    </table>
+    <input type="Submit" value="Update"/>
+    </form>
+</body>
+</html>
